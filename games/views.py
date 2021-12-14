@@ -28,10 +28,10 @@ def new_title(request):
     """Add a new title."""
     if request.method != 'POST':
         # No data submitted; create a blank form.
-        form = TopicForm()
+        form = TitleForm()
     else:
           # POST data submitted; process data.
-          form = TopicForm(data=request.POST)
+          form = TitleForm(data=request.POST)
           if form.is_valid():
               form.save()
               return redirect('games:titles')

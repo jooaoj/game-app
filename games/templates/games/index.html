@@ -2,11 +2,20 @@
 
 {% block page_header %}
 
-<div class="jumbotron jumbotron-fluid">
-    <!--div class="container"-->
-        <h1 class="display-3">Game Bonanza</h1>
-
-        <p class="lead">Share games and your thoughts on those games with people.</p>
+<div class="h-100 p-5 text-white bg-dark rounded-3">
+    <h2 style="color: azure; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large; font-weight: bolder;">Game Bonanza</h2>
+    <p style="font-style: italic; color: antiquewhite;">
+        A group of friends had a lot of physical games, board games and video
+        games alike. They are lending those games to each others alot and needed
+        an easier way to organize this. They wanted a web application for sharing, 
+        chatting and keeping track of loans.
+        In addition to that, in this web application you can also write and edit your
+        own entries for different games (as well as add a game of your own).
+        Sign up today, its free!!! Happy gaming :)
+    </p>
+    <a class="btn btn-outline-light" href="{% url 'users:register' %}" role="button">Sign up</button>
 </div>
 
 {% endblock page_header %}
