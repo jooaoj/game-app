@@ -31,6 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Custom apps.
+    'games',
+    'users',
+
+    # Third-party apps.
+    'bootstrap4',
+
+    # Djangos default apps.
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
