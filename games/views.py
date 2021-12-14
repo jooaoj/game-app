@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Title
+from .forms import TitleForm
 
 def index(request):
     """The home page available to anyone."""
@@ -22,3 +23,20 @@ def title(request, title_id):
     context = {'title': title, 'entries': entries}
 
     return render(request, 'games/title.html', context)
+
+def new_title(request):
+    """Add a new title."""
+    if request.method != 'POST':
+        # No data submitted; create a blank form.
+        form = TopicForm()
+    else:
+          # POST data submitted; process data.
+          form = TopicForm(data=request.POST)
+          if form.is_valid():
+              form.save()
+              return redirect('games:titles')
+
+    # Display a blank or invalid form.
+    context = {'form': form}
+    return render(request, 'games/new_title.html', context)
+

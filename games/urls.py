@@ -12,4 +12,6 @@ urlpatterns = [
     path('titles/', views.titles, name='titles'),
     # Descriptions and other details per game-entry
     path('titles/<int:title_id>/', views.title, name='title'),
+    # Page for adding a new title
+    path('new_title/', views.new_title, name='new_title'),
 ]
