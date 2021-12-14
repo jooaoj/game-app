@@ -6,7 +6,9 @@
 
 <ul>
     {% for title in titles %}
-      <li>{{ title }}</li>
+      <li>
+          <a href="{% url 'games:title' title.id %}">{{ title }}</a>
+        </li>
     {% empty %}
       <li>No games added, yet.</li>
     {% endfor %}

@@ -1,0 +1,16 @@
+{% extends "games/base.html" %}
+
+{% block content %}
+
+<h1>Game: {{ title }}</h1>
+
+<ul>
+{% for entry in entries %}
+    <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
+    <p>{{ entry.text|linebreaks }}</p>
+{% empty %}
+    <p>There's nothing here!</p>
+{% endfor %}
+</ul>
+
+{% endblock content %}
