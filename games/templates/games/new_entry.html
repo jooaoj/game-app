@@ -1,14 +1,17 @@
 {% extends "games/base.html" %}
+{% load bootstrap4 %}
+
 
 {% block content %}
 
-<p><a href="{% url 'games:title' title.id %}">{{ title }}</a></p>
-
-<p>Add a new entry:</p>
-<form>action="{% url 'games:new_entry' title.id %}" method='post'>
+<p style="font-style: italic; color: darkslategrey;">
+    You can add a new card for <a href="{% url 'games:title' title.id %}">{{  title }}</a> here:
+</p>
+<form action="{% url 'games:new_entry' title.id %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button name='submit'>Add entry</button>
+
+    <button name="submit">Submit</button>
 </form>
 
 {% endblock content %}

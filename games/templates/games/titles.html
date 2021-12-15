@@ -1,19 +1,25 @@
 {% extends "games/base.html" %}
 
-{% block content %}
 
-<p>Games</p>
+{% block page_header %}
+
+<h1>Games</h1>
+
+{% endblock page_header %}
+
+
+{% block content %}
 
 <ul>
     {% for title in titles %}
-      <li>
+      <li><h3>
           <a href="{% url 'games:title' title.id %}">{{ title }}</a>
-        </li>
+        </li></h3>
     {% empty %}
       <li>No games added, yet.</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'games:new_title' %}">Add a new title</a>
+<h3><a href="{% url 'games:new_title' %}">Add a new game</a></h3>
 
 {% endblock content %}

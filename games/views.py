@@ -15,6 +15,8 @@ def titles(request):
     context = {'titles': titles}
     
     return render(request, 'games/titles.html', context)
+
+
 @login_required
 def title(request, title_id):
     """Descriptions and other details per game-entry."""
@@ -23,6 +25,8 @@ def title(request, title_id):
     context = {'title': title, 'entries': entries}
 
     return render(request, 'games/title.html', context)
+
+
 @login_required
 def new_title(request):
     """Add a new title."""
@@ -39,6 +43,8 @@ def new_title(request):
     # Display a blank or invalid form.
     context = {'form': form}
     return render(request, 'games/new_title.html', context)
+
+
 @login_required
 def new_entry(request, title_id):
     """Add a new entry for a particular title"""
@@ -58,7 +64,9 @@ def new_entry(request, title_id):
 
     # Display a blank or invalid form.
     context = {'title': title, 'form': form} 
-    return render(request, 'games/new_entry.html', context)       
+    return render(request, 'games/new_entry.html', context) 
+
+      
 @login_required
 def edit_entry(request, entry_id):
     """Edit an existing entry."""

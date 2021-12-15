@@ -1,23 +1,35 @@
 {% extends "games/base.html" %}
 
+
+{% block page_header %}
+
+<h3>About {{ title }} a little bit:</h3>
+
+{% endblock page_header %}
+
+
 {% block content %}
 
-<h1>Game: {{ title }}</h1>
-
 <p>
-    <a href="{% url 'games:new_entry' title.id %}">Add new entry</a>
+    <a href="{% url 'games:new_entry' title.id %}" style="font-style: italic;">Add a new card if you'd wish</a>
 </p>
 
-<ul>
 {% for entry in entries %}
-    <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-    <p>{{ entry.text|linebreaks }}</p>
-    <p>
-        <a href="% url 'games:edit_entry' entry.id %}">Edit entry</a>
-    </p>
+    <div class="card mb-3" style="background: darkslategrey;">
+        <h4 class="card-header" style="color: floralwhite;">
+            {{ entry.date_added|date:'M d, Y H:i' }}
+            <small><a href="{% url 'games:edit_entry' entry.id %}" style="color: cadetblue; font-style: italic;">
+                Edit this entry</a></small>
+        </h4>
+
+        <div class="card-body" style="color: antiquewhite;">
+            {{ entry.text|linebreaks }}
+        </div>
+    </div>
+
 {% empty %}
     <p>There's nothing here!</p>
 {% endfor %}
-</ul>
+
 
 {% endblock content %}
